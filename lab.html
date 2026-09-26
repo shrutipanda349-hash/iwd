@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopCentral | E-Commerce Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation Menu -->
+    <header class="navbar">
+        <div class="logo">ShopCentral</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icons">
+            <a href="#" class="icon">??</a>
+            <a href="#" class="icon">?? <span class="cart-count">0</span></a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Upgrade Your Style</h1>
+            <p>Discover the latest trends with up to 50% off on featured collections.</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <main class="container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-grid">
+            
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://unsplash.com" alt="Running Shoes">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Premium Running Shoes</h3>
+                    <div class="product-rating">?????</div>
+                    <p class="product-price">$120.00</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://unsplash.com" alt="Wireless Headphones">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Wireless Headphones</h3>
+                    <div class="product-rating">?????</div>
+                    <p class="product-price">$89.00</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://unsplash.com" alt="Minimalist Watch">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Minimalist Quartz Watch</h3>
+                    <div class="product-rating">?????</div>
+                    <p class="product-price">$150.00</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://unsplash.com" alt="Gaming Headset">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">Pro Gaming Headset</h3>
+                    <div class="product-rating">?????</div>
+                    <p class="product-price">$65.00</p>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>ShopCentral</h3>
+                <p>Your one-stop destination for quality lifestyle products.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: support@shopcentral.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ShopCentral. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+/* --- Document Resets & Variables --- */
+@import url('https://googleapis.com');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #ff4757;
+    --secondary-color: #2f3542;
+    --text-color: #747d8c;
+    --light-bg: #f1f2f6;
+    --white: #ffffff;
+    --border-color: #e4e7ed;
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: var(--secondary-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- Header / Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icons a {
+    color: var(--secondary-color);
+    font-size: 20px;
+    margin-left: 25px;
+    text-decoration: none;
+    position: relative;
+    transition: var(--transition);
+}
+
+.nav-icons a:hover {
+    color: var(--primary-color);
+}
+
+.cart-icon .cart-count {
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Hero Banner Section --- */
+.hero {
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    color: var(--white);
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    max-width: 600px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    background-color: #ff2a3a;
+}
+
+/* --- Product Grid Structure --- */
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* --- Product Card Module --- */
+.product-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-color);
+    position: relative;
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.product-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.product-badge.blue {
+    background-color: #2f3542;
+}
+
+.product-img {
+    height: 280px;
+    width: 100%;
+    background-color: var(--light-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-img img {
+    transform: scale(1.06);
+}
+
+.product-actions {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-actions {
+    bottom: 20px;
+}
+
+.product-actions button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--white);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: var(--secondary-color);
+    transition: var(--transition);
+}
+
+.product-actions button:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info .category {
+    font-size: 12px;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.product-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rating {
+    color: #ffa502;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.rating span {
+    color: var(--text-color);
+    margin-left: 5px;
+}
+
+.price-box {
+    margin-bottom: 15px;
+}
+
+.price-current {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.price-old {
+    font-size: 14px;
+    color: var(--text-color);
+    text-decoration: line-through;
+    margin-left: 8px;
+}
+
+.btn-add-cart {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-add-cart:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* --- Footer Area --- */
+footer {
+    background-color: var(--secondary-color);
+    color: #a4b0be;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links li {
+        margin: 0 10px;
+    }
+    .hero {
+        height: 45vh;
+        text-align: center;
+        padding-left: 0;
+        justify-content: center;
+    }
+    .hero-content h1 {
+        font-size: 32px;
+    }
+}

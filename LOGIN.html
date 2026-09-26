@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+        /* Reset default page spacing */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Background image of the whole page */
+        body {
+            /* FIXED: Replaced generic domain with a direct link to a high-quality book image */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR77KqIfBqkoeWK0XrSxfDpcPX8Fr_xceNuxqFJ4l4uLg&s=10");
+            background-repeat: no-repeat;
+<br><br><br><br><br><br><<h1>Welcome Student</h1>
+<center><input type="submit" value="SIGN UP!"></center>
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Main white and orange card */
+        .login-card {
+            display: flex;
+            width: 100%;
+            max-width: 800px; /* FIXED: Prevents layout overflow on smaller screens */
+            min-height: 450px;
+            background-color: white;
+            border-radius: 40px; 
+            overflow: hidden; 
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Left panel style (Orange side) */
+        .left-panel {
+            flex: 1;
+            background-color: #b84318; 
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .left-panel h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        /* Sign up button style */
+        .signup-btn {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 30px;
+            font-weight: bold;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        
+        .signup-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Right panel style (White login form side) */
+        .right-panel {
+            flex: 1.2;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-panel h2 {
+            color: #b84318;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: normal;
+        }
+
+        /* Form layouts */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+        
+        .input-group input:focus {
+            border-color: #b84318; /* Aesthetic focus state matching the theme */
+        }
+
+        .input-group small {
+            color: #777;
+            font-size: 0.75rem;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Checkbox alignment */
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 25px;
+            font-size: 0.85rem;
+        }
+        
+        .checkbox-group input {
+            cursor: pointer;
+        }
+
+        /* Sign in button style */
+        .signin-btn {
+            background-color: #007bff; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%; /* Optimization: easier to tap on mobile */
+            transition: background-color 0.2s ease;
+        }
+
+        .signin-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* FIXED: Added responsive breakdown for mobile devices */
+        @media (max-width: 600px) {
+            .login-card {
+                flex-direction: column;
+                border-radius: 20px;
+            }
+            .left-panel {
+                padding: 30px 20px;
+            }
+            .right-panel {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main card container -->
+    <div class="login-card">
+        <!-- Left orange side -->
+        <div class="left-panel">
+            <h1>Welcome Student</h1>
+            <button class="signup-btn">SIGN UP !</button>
+        </div>
+
+        <!-- Right white side -->
+        <div class="right-panel">
+            <h2>STUDENT LOGIN</h2>
+            <form>
+                <div class="input-group">
+                    <label for="email">Email address</label>
+                    <!-- FIXED: Added required attribute for form validation -->
+                    <input type="email" id="email" placeholder="Enter email" required>
+                    <small>We'll never share your email with anyone else.</small>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <!-- FIXED: Added required attribute for form validation -->
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember me</label> <!-- FIXED: Changed text to standard 'Remember me' alignment -->
+                </div>
+                <button type="submit" class="signin-btn">SIGN IN</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

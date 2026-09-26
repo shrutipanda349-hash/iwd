@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage </title>
+    <style>
+        * { 
+            border: 0; 
+            font-family: Arial, sans-serif; 
+            padding: 0; 
+            margin: 0; 
+            box-sizing: border-box; 
+        } 
+        
+        html, body {
+            height: 100%;
+        }
+
+        body { 
+            line-height: 1.6; 
+            display: flex; 
+            flex-direction: column; 
+            background-color: #f4f4f4; 
+        } 
+        
+        .navbar { 
+            background: powderblue; 
+            display: flex; 
+            align-items: center; 
+            justify-content: flex-end; 
+            padding: 10px; 
+        } 
+        
+        .navbar a { 
+            color: #555; 
+            padding: 8px 10px; 
+            margin-left: 5px; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            text-decoration: none;
+        } 
+        
+        .navbar a.active { 
+            background-color: #6a5acd; 
+            color: white; 
+        } 
+        
+        .navbar a:hover { 
+            background-color: #218838; 
+            color: white;
+        } 
+        
+        .hero { 
+            flex: 1; 
+            position: relative; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://kashmirlife.net/wp-content/uploads/2019/06/Grievance-cell.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            text-align: center; 
+            padding: 20px; 
+        } 
+        
+        .hero h1 { 
+            color: white; 
+            font-size: 3.5rem; 
+            font-weight: 700; 
+        } 
+        
+        @media (max-width: 768px) { 
+            .navbar { 
+                justify-content: center; 
+                flex-wrap: wrap; 
+            } 
+            .hero h1 { 
+                font-size: 2.2rem; 
+            } 
+        } 
+    </style> 
+</head> 
+<body> 
+    <nav class="navbar"> 
+        <a href="#home" class="active">Home</a> 
+        <a href="#about">About</a> 
+        <a href="#feedback">Feedback</a> 
+        <a href="#contact">Contact</a> 
+        <a href="#login">Committee Login</a> 
+    </nav> 
+    <main class="hero"> 
+        <h1>WELCOME TO GRIEVANCE CELLs</h1> 
+    </main> 
+</body> 
+</html>
