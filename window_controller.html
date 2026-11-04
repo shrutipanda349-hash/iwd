@@ -1,0 +1,160 @@
+<!Window Controller!>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Window Controller</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #f0f4f8;
+        }
+
+        h1 {
+            color: navy;
+        }
+
+        button {
+            padding: 10px 16px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #1769aa;
+            color: white;
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: white;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Window Controller</h1>
+    <p>Click the buttons to control a new browser window.</p>
+
+    <button onclick="openWindow()">Open Window</button>
+    <button onclick="writeContent()">Write Content</button>
+    <button onclick="focusWindow()">Focus Window</button>
+    <button onclick="resizeWindow()">Resize Window</button>
+    <button onclick="closeWindow()">Close Window</button>
+
+    <div id="status">Status: Ready</div>
+
+    <script>
+        // Reference to the child window
+        let childWindow = null;
+
+        // Display status messages
+        function showStatus(message) {
+            document.getElementById("status").textContent =
+                "Status: " + message;
+        }
+
+        // 1. Open a new browser window
+        function openWindow() {
+            if (childWindow && !childWindow.closed) {
+                showStatus("Window is already open.");
+                childWindow.focus();
+                return;
+            }
+
+            childWindow = window.open(
+                "about:blank",
+                "myChildWindow",
+                "width=500,height=350,resizable=yes,scrollbars=yes"
+            );
+
+            if (childWindow) {
+                showStatus("New window opened successfully.");
+            } else {
+                showStatus("Pop-up blocked. Allow pop-ups and try again.");
+            }
+        }
+
+        // 2. Write content into the child window
+        function writeContent() {
+            if (childWindow && !childWindow.closed) {
+                childWindow.document.body.innerHTML = `
+                    <h1>Welcome!</h1>
+                    <p>This window was created using JavaScript.</p>
+                    <p>Current time: ${new Date().toLocaleTimeString()}</p>
+                `;
+
+                childWindow.document.body.style.fontFamily = "Arial";
+                childWindow.focus();
+
+                showStatus("Content written to the child window.");
+            } else {
+                showStatus("Please open the window first.");
+            }
+        }
+
+        // 3. Bring the child window into focus
+        function focusWindow() {
+            if (childWindow && !childWindow.closed) {
+                childWindow.focus();
+                showStatus("Focus requested for child window.");
+            } else {
+                showStatus("No open child window.");
+            }
+        }
+
+        // 4. Request a resize of the child window
+        function resizeWindow() {
+            if (childWindow && !childWindow.closed) {
+                childWindow.resizeTo(700, 500);
+                showStatus("Resize requested.");
+            } else {
+                showStatus("Please open the window first.");
+            }
+        }
+
+        // 5. Close the child window
+        function closeWindow() {
+            if (childWindow && !childWindow.closed) {
+                childWindow.close();
+                showStatus("Close requested.");
+            } else {
+                showStatus("No open child window.");
+            }
+        }
+
+        // 6. Window events
+        window.addEventListener("load", function () {
+            showStatus("Main page loaded.");
+        });
+
+        window.addEventListener("resize", function () {
+            console.log(
+                "Window resized. Width:",
+                window.innerWidth,
+                "Height:",
+                window.innerHeight
+            );
+        });
+
+        window.addEventListener("focus", function () {
+            console.log("Main window gained focus.");
+        });
+
+        window.addEventListener("blur", function () {
+            console.log("Main window lost focus.");
+        });
+
+        window.addEventListener("beforeunload", function () {
+            console.log("Main page is about to unload.");
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Control with Abstraction & Data Hiding</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:pink;
+            text-align: center;
+            margin-top: 50px;
+           <!background-image: url('img.jpg');!>
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            background:violet;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        input {
+            padding: 10px;
+            margin: 8px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #1a73e8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Car Control System</h2>
+        <input type="number" id="speedInput" placeholder="Enter Speed Shift (km/h)">
+        <br>
+        <button onclick="accelerateCar()">Accelerate</button>
+        <button onclick="brakeCar()">Apply Brake</button>
+        <button onclick="checkStatus()">Check Status</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // JavaScript class demonstrating OOP principles
+        class Car {
+            // DATA HIDING: Brand and speed are now private fields (#)
+            // They cannot be modified or read directly from outside the class.
+            #brand;
+            #speed = 0;
+
+            constructor(brand, initialSpeed) {
+                this.#brand = brand;
+                this.#speed = initialSpeed;
+            }
+
+            // ABSTRACTION: The interface exposes simple methods 
+            // The user doesn't need to know the mathematical logic inside.
+            accelerate(amount) {
+                if (amount <= 0) {
+                    return "Please enter a valid acceleration value.";
+                }
+                this.#speed += amount;
+                return `${this.#brand} speed increased!`;
+            }
+
+            brake(amount) {
+                if (amount <= 0) {
+                    return "Please enter a valid brake value.";
+                }
+                if (this.#speed - amount < 0) {
+                    this.#speed = 0;
+                    return `${this.#brand} came to a complete stop.`;
+                }
+                this.#speed -= amount;
+                return `${this.#brand} slowed down.`;
+            }
+
+            getCarStatus() {
+                return `${this.#brand} is currently traveling at ${this.#speed} km/h.`;
+            }
+        }
+
+        // Creating the object instance
+        const myCar = new Car('Tesla', 120);
+
+        // DHTML Control Functions
+        function accelerateCar() {
+            let amount = Number(document.getElementById("speedInput").value);
+            let message = myCar.accelerate(amount);
+            document.getElementById("result").innerHTML = message + "<br>" + myCar.getCarStatus();
+        }
+
+        function brakeCar() {
+            let amount = Number(document.getElementById("speedInput").value);
+            let message = myCar.brake(amount);
+            document.getElementById("result").innerHTML = message + "<br>" + myCar.getCarStatus();
+        }
+
+        function checkStatus() {
+            document.getElementById("result").innerHTML = myCar.getCarStatus();
+        }
+    </script>
+</body>
+</html>

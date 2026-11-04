@@ -1,0 +1,111 @@
+<!--Validate a form using javascript--!>
+<html>
+<head>
+<title> Form Validation</title>
+<body>
+<h2>Form validation</h2>
+  <p id="successMessage" class="success"></p>
+
+<form id="registrationForm">
+<div class="form-group">
+<label for ="full name">Full Name</label>
+<input type="text" id="fullName">
+<span id="nameError" class="error"></span>
+</div>
+
+<div class="form-group">
+<label for="email">Email Address</label>
+<input type="text" id="email">
+<span id="emailError" class="error"></span>
+</div>
+
+<div class="form-group">
+<label for="password">Password</label>
+<input type="password" id="password">
+<span id="passwordError" class="error"></span>
+</div>
+
+<div class="form-group">
+<label>Gender</label>
+<input type="radio" name="gender" value="Male" id="male">Male
+<input type="radio" name="gender" value="Female" id="female">Female
+<span id="genderError" class="error"></span>
+</div>
+
+<div class="form-group">
+<input type="checkbox" id="terms">I agree to the terms and condition.
+<span id="termsError" class="error"></span>
+</div>
+<button type="submit">Register</button>
+</form>
+<script>
+const form = document.getElementById('registrationForm');
+
+    form.addEventListener('submit', function(event) {
+      // Prevent the page from refreshing on submit
+      event.preventDefault();
+
+      // Track if the whole form is valid
+      let isValid = true;
+
+      // Get values from elements
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const genderSelected = document.querySelector('input[name="gender"]:checked');
+      const termsChecked = document.getElementById('terms').checked;
+
+      // Clear all past error messages
+      document.getElementById('nameError').textContent = '';
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('passwordError').textContent = '';
+      document.getElementById('genderError').textContent = '';
+      document.getElementById('termsError').textContent = '';
+      document.getElementById('successMessage').textContent = '';
+
+      // 1. Name Validation
+      if (fullName === '') {
+        document.getElementById('nameError').textContent = 'Name is required.';
+        isValid = false;
+      }
+
+      // 2. Email Validation (using basic text pattern matching)
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email === '') {
+        document.getElementById('emailError').textContent = 'Email is required.';
+        isValid = false;
+      } else if (!emailPattern.test(email)) {
+        document.getElementById('emailError').textContent = 'Please enter a valid email context (e.g., name@example.com).';
+        isValid = false;
+      }
+
+      // 3. Password Validation (Checks for length)
+      if (password === '') {
+        document.getElementById('passwordError').textContent = 'Password is required.';
+        isValid = false;
+      } else if (password.length < 6) {
+        document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long.';
+        isValid = false;
+      }
+
+      // 4. Radio Button Validation
+      if (!genderSelected) {
+        document.getElementById('genderError').textContent = 'Please select your gender.';
+        isValid = false;
+      }
+
+      // 5. Checkbox Validation
+      if (!termsChecked) {
+        document.getElementById('termsError').textContent = 'You must accept the terms.';
+        isValid = false;
+      }
+
+      // Final Execution
+      if (isValid) {
+        document.getElementById('successMessage').textContent = 'Registration successful!';
+        form.reset(); // Clears all inputs in the form automatically
+      }
+    });
+</script>
+</body>
+</html>	

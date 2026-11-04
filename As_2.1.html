@@ -1,0 +1,119 @@
+<!DHTML with abstraction and data hiding!>
+<html>
+<head>
+<title>Data Hiding and abstraction</title>
+<style>
+body{
+font-family:Arial;
+background-color:orange;
+text-align:center;
+margin-top:50px;
+ background-image: url('img.jpg');
+ background-size: cover;
+ background-position: center;
+ }
+.container{
+background:yellow;
+width:400px;
+margin:auto;
+padding:25px;
+border-radius:10px;
+box-shadow: 0 0 10px gray;
+}
+input{
+padding:10px;
+margin:8px;
+width:200px;
+}
+button{
+padding:10px 20px;
+margin:5px;
+cursor:pointer;
+}
+#result{
+margin-top:20px;
+font-weight:bold;
+color:green;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Bank Account</h2>
+<input type="number" id="amount" placeholder="Enter Amount">
+<br>
+<button onclick="depositMoney()">Deposit</button>
+ <button onclick="WithdrawMoney()">Withdraw</button>
+ <button onclick="showBalance()">Check Balance</button>
+ 
+ <p id="result"></p>
+ </div>
+ <script>
+ //JavaScript class
+ class BankAccount{
+         //DATA hiding
+		 // Private variable cannot be accessed directly outside the class
+        #balance = 0;
+
+        // ABSTRACTION
+        // User does not need to know how balance is internally maintained
+
+        deposit(amount) {
+            if (amount > 0) {
+                this.#balance += amount;
+                return "Amount deposited successfully.";
+            }
+            return "Enter a valid amount.";
+        }
+
+        withdraw(amount) {
+            if (amount <= 0) {
+                return "Enter a valid amount.";
+            }
+
+            if (amount > this.#balance) {
+                return "Insufficient balance.";
+            }
+
+            this.#balance -= amount;
+            return "Amount withdrawn successfully.";
+        }
+
+        getBalance() {
+            return this.#balance;
+        }
+    }
+
+    // Create object
+    const account = new BankAccount();
+
+    function depositMoney() {
+
+        let amount = Number(document.getElementById("amount").value);
+
+        let message = account.deposit(amount);
+
+        document.getElementById("result").innerHTML =
+            message + "<br>Balance: " + account.getBalance();
+    }
+
+    function withdrawMoney() {
+
+        let amount = Number(document.getElementById("amount").value);
+
+        let message = account.withdraw(amount);
+
+        document.getElementById("result").innerHTML =
+            message + "<br>Balance: " + account.getBalance();
+    }
+
+    function showBalance() {
+
+        document.getElementById("result").innerHTML =
+            "Current Balance: " + account.getBalance();
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abstraction and Data Hiding - Coffee Machine</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#A47251;
+            text-align: center;
+            margin-top: 50px;
+            background-image: url('img.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .container{
+            background:#DD9E59;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        button{
+            padding: 10px 20px;
+            margin: 15px 5px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result{
+            margin-top: 20px;
+            font-weight: bold;
+            color: #6F4E37; /* Coffee brown color */
+            text-align: left;
+            line-height: 1.6;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Coffee Machine</h2>
+    <!-- The user doesn't need input fields for temperature or bean grinding, just a single button -->
+    <button onclick="makeCoffee()">Start Coffee Machine</button>
+    <p id="result"></p>
+</div>
+
+<script>
+// JavaScript class matching your architectural logic
+class CoffeeMachine {
+    // DATA HIDING & ENCAPSULATION
+    // Private methods cannot be triggered or tampered with directly outside the class
+    #boilWater() { 
+        return '?? Water is boiling...'; 
+    }
+    
+    #brewCoffee() { 
+        return '? Brewing coffee beans...'; 
+    }
+
+    // ABSTRACTION
+    // The user only invokes this simple public method. 
+    // The internal operational mechanics remain hidden.
+    start() {
+        let step1 = this.#boilWater();
+        let step2 = this.#brewCoffee();
+        let step3 = '? Coffee is ready! Enjoy your drink.';
+        
+        // Return the combined operations sequence safely
+        return `${step1}<br>${step2}<br>${step3}`;
+    }
+}
+
+// Create object instance
+const machine = new CoffeeMachine();
+
+function makeCoffee() {
+    // Clear screen and trigger the unified abstraction interface
+    document.getElementById("result").innerHTML = "Starting process...<br><br>";
+    
+    let processMessage = machine.start();
+    
+    document.getElementById("result").innerHTML = processMessage;
+}
+</script>
+
+</body>
+</html>
